@@ -1,6 +1,11 @@
-__author__ = 'vogda04'
+from lxml import html
 import requests
-import lxml
+import re
 page = requests.get('http://www.pythonchallenge.com/pc/def/ocr.html')
 print(page)
-tree = lxml.html.fromString(page.text)
+tree = html.fromstring(page.text)
+myTest = tree.xpath('//')
+#myText = tree.xpath('//span[@class="html-commment"]/text()')
+myText = """"""
+print 'the text: ', myText
+print "".join(re.findall("[A-Za-z]", myText))
